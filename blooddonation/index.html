@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>HTML Code for Registration Form with Validation Tutorial</title>
+	<meta name="description" content="In this tutorial you will learn how to html code for registration form with Javascript validation. We will also create form with nice css styling." />
+    <meta name="author" content="Codeconvey" />
+    <!--Only for demo purpose - no need to add.-->
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+	<link rel="stylesheet" href="css/formstyle.css">
+    <link rel="stylesheet" href="style.css">
+    <style>.nav-links{
+        flex: 1;
+        text-align: right;
+        text-align: center;
+    }
+    
+    .nav-links ul li{
+        list-style: none;
+        display: inline-block;
+        padding: 8px 12px;
+        position: relative;
+    }
+    
+    .nav-links ul li a{
+        color: #66cc99;
+        text-decoration: none;
+        font-size: 20px;
+      
+    }
+    
+    .nav-links ul li::after{
+        content: '';
+        width: 0%;
+        height: 2PX;
+        background: #00ffbf;
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+    }
+    
+    .nav-links ul li:hover::after{
+        width: 100%;
+    }
+
+    .f-group{
+        float: left;
+        color: #fbfbfb;
+    }
+
+    .f-group label{
+        color:  #66cc99;
+        text-transform: uppercase;
+    }
+
+    .f-group select{
+        background: transparent;
+        font-size: 14px;
+        display: block;
+        padding: 10px 30px 10px 5px;
+        margin: 10px 0 40px;
+        border: 2px solid rgb(2, 1, 1);
+        border-bottom: 2px solid rgb(250, 247, 247);
+        width:100%;
+    }
+
+    .f-group option{
+        position: absolute;
+        background-color: rgb(197, 226, 253);
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+    }
+
+    </style>
+    
+    
+</head>
+<body>
+    <nav class="navbar navbar-light" style="background-color: rgb(23, 28, 51);">
+        <div class="container-fluid">
+            <!--<a class="navbar-brand" href="#">
+                <img src="C:\Users\jerin antony\Desktop\fresh\10.jpg" alt="" width="250" class="d-inline-block align-text-left">
+              </a>-->
+            <ul class="nav justify-content-end">
+                <div class="nav-links">
+                    <!--<i class="fa fa-times" onclick="hideMenu()"></i>-->
+                       <ul>
+                           <li><a href="C:\Users\jerin antony\Desktop\fresh\newpage.html">HOME</a></li>
+                           <li><a href="C:\Users\jerin antony\Desktop\fresh\dashboard.html">DASHBOARD</a></li>
+                           <li><a href="C:\Users\jerin antony\Desktop\fresh\newform.html">APPOINMENT</a></li>
+                           <li><a href="#">VACCINATION SERVICES</a></li>
+                       </ul>
+                   </div>
+
+              
+            <!-- Navbar content -->
+        </div>
+    </nav>
+		
+
+<header class="ScriptHeader">
+    <div class="rt-container">
+    	<div class="col-rt-12">
+        	<div class="rt-heading">
+            	<h1>BLOOD DONOR REGISTRATION FORUM</h1>
+                <h2>Read The Eligibility criteria & Ensure Before Registration</h2>
+                <a href="donationelg.pdf" target="_blank">Ensure your Eligibility</a>
+            	<h2>Kindly Fill Up The Form To Donate Blood.</h2>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+               
+               <div class="form-container">
+                <form name="registerForm">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="John" required/><p class="error-message"></p>
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" placeholder="Doe" required/>
+                  <p class="error-message"></p>
+                  <label for="e-mail">E-mail address *</label>
+                  <input type="text" id="e-mail" placeholder="john-doe@net.com" required/>
+                  <p class="error-message"></p>
+                  <label for="phoneNumber">Phone Number</label>
+                  <input type="text" id="phoneNumber" maxlength="9" pattern=".{9,}"   required title="9 characters length"placeholder="223587972"/>
+                  <p class="error-message"></p>
+                  <p><label for="password">Password *</label></p>
+                  <input type="password" id="password" pattern=".{8,}"   required title="8 characters minimum"/>
+                  <p class="error-message"></p>
+                  <p class="password-rules">Your password should contain at least 8 characters and 1 number.</p>
+                  <div class="radio-question">
+                    <p>Where did you find out about us?</p>
+                    <form>
+                    <input class="radio-input" type="radio" name="media" value="TV" /> TV <br>
+                    <input class="radio-input" type="radio" name="media" value="radio" /> Radio <br>
+                     <input class="radio-input" type="radio" name="media" value="internet" /> Internet <br>
+                     <input class="radio-input" type="radio" name="media" value="newspaper" /> Newspaper <br>
+                     <input class="radio-input" type="radio" name="media" value="recommend" /> Recommendation <br>
+                    </div>
+                    <div class="f-group">
+                        <label for="">State</label>
+                        <select id="slct1" name="slct1" width:100% onchange="populate(this.id,'slct2')">
+                          <option value="">--Select District--</option>
+                                       <option value="1"> Andhra Pradesh</option>
+                                       <option value="2">Arunachal Pradesh</option>
+                                       <option value="3">Assam</option>
+                                       <option value="4">Bihar</option>
+                                       <option value="5">Chhattisgarh</option>
+                                       <option value="6">Goa</option>
+                                       <option value="7">Gujarat</option>
+                                       <option value="8">Haryana</option>
+                                       <option value="9">Himachal Pradesh</option>
+                                       <option value="10">Jharkhand</option>
+                                       <option value="11">Karnataka</option>
+                                       <option value="12">Kerala</option>
+                                       <option value="13">Madhya Pradesh</option>
+                                       <option value="14">Maharashtra</option>
+                                       <option value="15">Manipur</option>
+                                       <option value="16">Meghalaya</option>
+                                       <option value="17">Mizoram</option>
+                                       <option value="18">Nagaland</option>
+                                       <option value="19">Odisha</option>
+                                       <option value="20">Punjab</option>
+                                       <option value="21">Rajasthan</option>
+                                       <option value="22">Sikkim</option>
+                                       <option value="23">Tamil Nadu</option>
+                                       <option value="24">Telangana</option>
+                                       <option value="25">Tripura</option>
+                                       <option value="26">Uttarakhand</option>
+                                       <option value="27">Uttar Pradesh</option>
+                                       <option value="28">West Bengal</option>
+                                     </select>
+                      </div>
+                      <div class="f-group">
+                         <label for="">District</label>
+                          <select id="slct2" name="slct2"></select>
+                      </div>
+                        <!--<input type="text" id="country" placeholder="United Kingdom"/>-->
+                        <p class="error-message"></p>
+                    <input class="button" type="submit" value="submit" name="submit" onClick="formValidation()" />
+                 </form>
+                 </div>
+              </div>
+  
+		</div>
+    </div>
+</section>
+     
+<script>
+    function populate(Districts,Centers){
+      var s1 = document.getElementById(Districts);
+      var s2 = document.getElementById(Centers);
+      s2.innerHTML = "";
+      if(s1.value == "1"){
+        var optionArray = ["|","ANANTAPUR|Anantapur", "CHITTOOR|Chittoor", "EAST GODAVARI|East Godavari", "GUBTUR|Guntur", "CUDDAPAH|Cuddapah", "KRISHNA|Krishna", "KURNOOL|Kurnool", "PRAKASHAM|Prakasam", "NELLORE|Nellore", "SRIKAKULAM|Srikakulam", "VISHAKHAPATNAM|Vishakhapatnam", "VIZINIANAGARAM|Vizianagaram", "WEST GODAVARI|West Godavari"];
+      } else if(s1.value == "2"){
+        var optionArray = ["|","ANJAW|Anjaw",  "CHANGLANG|Chang Lang",  "DIBANG VALLEY|Dibang Valley",  "EAST KAMENG|East Kameng",  "EAST SIANG|East Siang",  "ITANAGAR|Itanagar",  "Kra Daadi|KRA DAADI",  "KURUNG KUMEY|Kurung Kumey",  "LOHIT|Lohit",  "LONGDING|Longding",  "LOWER DIBANG VALLEY|Lower Dibang Valley",  "LOWER SUBANSIRI|Lower Subansiri",  "NAMSAI|Namsai",  "PAPUMPARE|Papumpare",  "SHIYOMI|Shiyomi",  "SIANG|Siang",  "TAWANG|Tawang",  "TIRAP|Tirap",  "UPPER SIANG|Upper Siang",  "UPPER SUBANSIRI|Upper Subansiri",  "WEST KAMENG|West Kameng",  "WEST SIANG|West Siang"];
+      } else if(s1.value == "3"){
+        var optionArray = ["|"," BAKSA|Baksa", "BARPETA|Barpeta",	"BISWANTH|Biswanath",	"BONGAIGAON|Bongaigaon",    "CACHAR|Cachar",	"CHARAIDEO|Charaideo",	"CHIRANG|Chirang",	"DARRAN|Darrang",	"DHEMAJI|Dhemaji",	"DHUBRI|Dhubri",	"DIBRUGARH|Dibrugarh",	"DIMA HASAO|Dima Hasao",	"GOALPARA|Goalpara",	"GOLAGHAT|Golaghat",	"HAILAKANDI|Hailakandi",	"HOJAI|Hojai",	"JORHAT|Jorhat",	"KAMRUP METROPOLITAN|Kamrup Metropolitan",	"KAMRUP|Kamrup",	"KARBI ANLONG|Karbi Anglong",	"KARIMGANJ|Karimganj",	"KOKRAJHAR|Kokrajhar", "LAKHIMPUR|Lakhimpur",	"MAJULI|Majuli",	"MORIGAON|Morigaon", "Nagaon", 	"NALBARI|Nalbari", 	"SIVASAGAR|Sivasagar", 	"SONITPUR|Sonitpur", 	"SOUTH SALMARA-MANKACHAR|South Salmara-Mankachar", 	"TINSUKIA|Tinsukia",  	"UDALGURI|Udalguri",	"WEST KARBI ANGLONG|West Karbi Anglong"];
+      } else if(s1.value == "4"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      } else if(s1.value == "5"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "6"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      } else if(s1.value == "7"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "8"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      }  else if(s1.value == "9"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "10"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      } else if(s1.value == "11"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "12"){
+        var optionArray = ["|","THIRUVANANTHAPURAM|Thiruvananthapuram", "KOLLAM|Kollam", "ALAPPUZHA|Alappuzha", "PATHANAMTHITTA|Pathanamthitta", "KOTTAYAM|Kottayam", "IDUKKI|Idukki", "ERNAKULAM|Ernakulam", "THRISSUR|Thrissur", "PALAKKAD|Palakkad", "MALAPPURAM|Malappuram", "KOZHIKODE|Kozhikode", "WAYANAD|Wayanad", "KANNUR|Kannur", "KASARAGOD|Kasaragod"];
+      } else if(s1.value == "14"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "15"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      } else if(s1.value == "16"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "17"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      } else if(s1.value == "18"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "19"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      } else if(s1.value == "20"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "21"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      } else if(s1.value == "22"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "23"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      } else if(s1.value == "24"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "25"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      } else if(s1.value == "27"){
+        var optionArray = ["|","sherlock|sherlock","INFOSYS|infosys"];
+      } else if(s1.value == "28"){
+        var optionArray = ["|","sherlock|sherlock","INFOTECH|infotech"];
+      }
+      for(var option in optionArray){
+        var pair = optionArray[option].split("|");
+        var newOption = document.createElement("option");
+        newOption.value = pair[0];
+        newOption.innerHTML = pair[1];
+        s2.options.add(newOption);
+      }
+    }
+    </script>
+    
+    
+   
+
+	</body>
+</html>
